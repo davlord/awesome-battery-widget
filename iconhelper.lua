@@ -6,8 +6,7 @@ local IconLookupFlags = lgi.Gtk.IconLookupFlags
 local BATTERY_EMPTY = 5
 local BATTERY_CAUTION = 20
 local BATTERY_LOW = 40
-local BATTERY_GOOD = 60
-local BATTERY_FULL = 80
+local BATTERY_GOOD = 80
 
 local iconhelper = {}
 
@@ -41,7 +40,7 @@ function iconhelper.get_power_icon(on_battery, device)
         if on_battery == false then return icon.battery_low_charging else return icon.battery_low end
     elseif battery_level <= BATTERY_GOOD then
         if on_battery == false then return icon.battery_good_charging else return icon.battery_good end
-    elseif battery_level <= BATTERY_FULL then
+    else
         if on_battery == false then return icon.battery_full_charging else return icon.battery_full end
     end
 
