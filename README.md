@@ -1,6 +1,8 @@
 # awesome-battery-widget
 A battery widget for Awesome WM
 
+![awesome-battery-widget screenshot](awesome-battery-widget.png)
+
 ## features
 
 * Lightweight (no constant polling but event based updates)
