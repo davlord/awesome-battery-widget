@@ -14,7 +14,7 @@ local upower = nil
 
 function battery_widget:update_icon(on_battery, device)
     local icon = iconhelper.get_power_icon(on_battery, device)
-    self.imagebox:set_image(icon:load_surface())
+    self.imageboxcontainer.imagebox:set_image(icon:load_surface())
 end
 
 function battery_widget:update_text(on_battery, device)
@@ -41,9 +41,15 @@ local function new(args)
         layout = wibox.layout.fixed.horizontal,
         spacing = 2,
         {
-            id = "imagebox",
-            widget = wibox.widget.imagebox,
-            resize = true,
+            top    = 4,
+            bottom = 4,
+            layout = wibox.container.margin,
+            id = "imageboxcontainer",
+            {
+                id = "imagebox",
+                widget = wibox.widget.imagebox,
+                resize = true,
+            },
         },
         {
             id = "textbox",
